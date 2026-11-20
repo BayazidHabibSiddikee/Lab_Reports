@@ -1,0 +1,18 @@
+* 5V to 3.3V regulator concept
+* Compatible with ngspice / LTspice syntax with minor adjustments.
+
+V1 vin 0 DC 5
+Rin vin vreg 0.12
+C1 vin 0 10u
+C2 vreg 0 10u
+
+* Ideal 3.3V regulator behavior for simulation purposes.
+Ereg vreg 0 VALUE = {min(3.3, max(0, V(vin)))}
+Rload vreg 0 330
+
+.tran 0.1m 20m
+.control
+run
+plot v(vin) v(vreg)
+.endc
+.end

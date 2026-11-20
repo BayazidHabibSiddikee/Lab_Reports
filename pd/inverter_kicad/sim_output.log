@@ -1,0 +1,42 @@
+Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 20: invalid constant used : 
+Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 43: invalid constant used : 
+Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 69: invalid constant used : 
+Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 89: invalid constant used : 
+Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 109: invalid constant used : 
+Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 121: invalid constant used : 
+Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 133: invalid constant used : 
+Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 145: invalid constant used : 
+Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 157: invalid constant used : 
+Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 169: invalid constant used : 
+Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 181: invalid constant used : 
+Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 193: invalid constant used : 
+Fontconfig warning: "/etc/fonts/conf.d/48-guessfamily.conf", line 205: invalid constant used : 
+Fontconfig warning: "/home/sword/.config/fontconfig/conf.avail-local/48-guessfamily.conf", line 20: invalid constant used : 
+Fontconfig warning: "/home/sword/.config/fontconfig/conf.avail-local/48-guessfamily.conf", line 43: invalid constant used : 
+Fontconfig warning: "/home/sword/.config/fontconfig/conf.avail-local/48-guessfamily.conf", line 69: invalid constant used : 
+Fontconfig warning: "/home/sword/.config/fontconfig/conf.avail-local/48-guessfamily.conf", line 89: invalid constant used : 
+Fontconfig warning: "/home/sword/.config/fontconfig/conf.avail-local/48-guessfamily.conf", line 109: invalid constant used : 
+Fontconfig warning: "/home/sword/.config/fontconfig/conf.avail-local/48-guessfamily.conf", line 121: invalid constant used : 
+Fontconfig warning: "/home/sword/.config/fontconfig/conf.avail-local/48-guessfamily.conf", line 133: invalid constant used : 
+Fontconfig warning: "/home/sword/.config/fontconfig/conf.avail-local/48-guessfamily.conf", line 145: invalid constant used : 
+Fontconfig warning: "/home/sword/.config/fontconfig/conf.avail-local/48-guessfamily.conf", line 157: invalid constant used : 
+Fontconfig warning: "/home/sword/.config/fontconfig/conf.avail-local/48-guessfamily.conf", line 169: invalid constant used : 
+Fontconfig warning: "/home/sword/.config/fontconfig/conf.avail-local/48-guessfamily.conf", line 181: invalid constant used : 
+Fontconfig warning: "/home/sword/.config/fontconfig/conf.avail-local/48-guessfamily.conf", line 193: invalid constant used : 
+Fontconfig warning: "/home/sword/.config/fontconfig/conf.avail-local/48-guessfamily.conf", line 205: invalid constant used : 
+=== MTE 3201 PV INVERTER SIMULATION & FFT SUMMARY ===
+Q1: ma = 0.8132  |  Q4: Cf = 12.665 uF  |  fs = 10.0 kHz  |  td = 2.0 us
+
+--- Q3: Unfiltered Bipolar vs Unipolar SPWM (Load A, Final 5 Cycles) ---
+Bipolar SPWM   | Vo,rms=391.92 V | V1,rms=230.07 V | THDv=114.03% | V3=0.10 V (0.05%) | V5=0.03 V (0.01%)
+Unipolar SPWM  | Vo,rms=287.82 V | V1,rms=230.07 V | THDv= 42.07% | V3=0.10 V (0.05%) | V5=0.03 V (0.01%)
+
+--- Q2: Unfiltered Load B (R-L) ---
+Unipolar SPWM | Vo,rms=279.94 V | V1,rms=217.18 V | THDv= 46.24% | Ipk=13.61 A
+
+--- Q4 & Q5: Filtered Unipolar SPWM Performance (Final 5 Cycles) ---
+Load A (400V)  | Vo,rms=216.31 V | THDv= 3.16% | V3/V1=2.28% | Ipk=11.78 A
+Load B (400V)  | Vo,rms=214.76 V | THDv= 3.82% | V3/V1=2.17% | Ipk=13.43 A
+Load A (320V)  | Vo,rms=173.05 V | THDv= 3.16%
+
+Done. Figure saved as mte3201_waveforms_q2_q4_q5.png

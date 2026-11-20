@@ -1,0 +1,323 @@
+(export
+	(version "E")
+	(design
+		(source "/home/sword/Documents/reports/pd/inverter_kicad/inverter.kicad_sch")
+		(date "2026-11-01T04:54:47")
+		(tool "Eeschema 10.0.7")
+		(sheet
+			(number "1")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title "2kW Single-Phase Full-Bridge VSI")
+				(company "Concept design")
+				(rev "B")
+				(date "2026-11-01")
+				(source "inverter.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+	)
+	(components)
+	(groups)
+	(variants)
+	(libparts)
+	(libraries)
+	(nets
+		(net
+			(code "4")
+			(name "/G4")
+			(class "Default")
+			(node
+				(ref "Q4")
+				(pin "D")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "Q4")
+				(pin "G")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "Q4")
+				(pin "S")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "9")
+			(name "Net-(C1-Pad??)")
+			(class "Default")
+			(node
+				(ref "C1")
+				(pin "1")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "C1")
+				(pin "2")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "10")
+			(name "Net-(C2-Pad??)")
+			(class "Default")
+			(node
+				(ref "C2")
+				(pin "1")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "C2")
+				(pin "2")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "11")
+			(name "Net-(C3-Pad??)")
+			(class "Default")
+			(node
+				(ref "C3")
+				(pin "1")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "C3")
+				(pin "2")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "12")
+			(name "Net-(D1-Pad??)")
+			(class "Default")
+			(node
+				(ref "D1")
+				(pin "1")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "D1")
+				(pin "2")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "13")
+			(name "Net-(D2-Pad??)")
+			(class "Default")
+			(node
+				(ref "D2")
+				(pin "1")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "D2")
+				(pin "2")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "14")
+			(name "Net-(D3-Pad??)")
+			(class "Default")
+			(node
+				(ref "D3")
+				(pin "1")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "D3")
+				(pin "2")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "15")
+			(name "Net-(D4-Pad??)")
+			(class "Default")
+			(node
+				(ref "D4")
+				(pin "1")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "D4")
+				(pin "2")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "16")
+			(name "Net-(F1-Pad??)")
+			(class "Default")
+			(node
+				(ref "F1")
+				(pin "1")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "F1")
+				(pin "2")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "17")
+			(name "Net-(J1-Pad??)")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "1")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "J1")
+				(pin "2")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "18")
+			(name "Net-(J2-Pad??)")
+			(class "Default")
+			(node
+				(ref "J2")
+				(pin "1")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "J2")
+				(pin "2")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "19")
+			(name "Net-(L1-Pad??)")
+			(class "Default")
+			(node
+				(ref "L1")
+				(pin "1")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "L1")
+				(pin "2")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "20")
+			(name "Net-(Q1-Pad??)")
+			(class "Default")
+			(node
+				(ref "Q1")
+				(pin "D")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "Q1")
+				(pin "G")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "Q1")
+				(pin "S")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "21")
+			(name "Net-(Q2-Pad??)")
+			(class "Default")
+			(node
+				(ref "Q2")
+				(pin "D")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "Q2")
+				(pin "G")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "Q2")
+				(pin "S")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "22")
+			(name "Net-(Q3-Pad??)")
+			(class "Default")
+			(node
+				(ref "Q3")
+				(pin "D")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "Q3")
+				(pin "G")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "Q3")
+				(pin "S")
+				(pintype "unspecified")
+			)
+		)
+		(net
+			(code "23")
+			(name "Net-(RV1-Pad??)")
+			(class "Default")
+			(node
+				(ref "RV1")
+				(pin "1")
+				(pintype "unspecified")
+			)
+			(node
+				(ref "RV1")
+				(pin "2")
+				(pintype "unspecified")
+			)
+		)
+	)
+)

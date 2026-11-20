@@ -1,0 +1,807 @@
+(kicad_sch
+  (version 20250114)
+  (generator "eeschema")
+  (generator_version "9.0")
+  (uuid "fc0fdd15-cdae-4a3f-8d8e-b91b1f50c38a")
+  (paper "A4")
+  (title_block
+    (title "2kW PV Full-Bridge Inverter - SPICE Ready")
+    (date "2026-11-03")
+    (rev "C")
+    (company "MTE 3201")
+  )
+  (symbol
+    (lib_id "power:VCC")
+    (at 30 50 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "4a2e3e30-159f-4cf3-ae8a-1334dfe72ba4")
+    (property "Reference" "V1"
+      (at 30 53.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "400V"
+      (at 30 57.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Spice_Primitive" "Vdc"
+      (at 30 50 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Spice_Model" "Vdc"
+      (at 30 50 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Spice_Netlist" "Vdc_src dc_pos 0 {Vdc}"
+      (at 30 50 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "4180ce03-d4fe-4e1e-b9cc-8e60399c4723"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "V1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "power:GND")
+    (at 30 80 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "6f1b2412-e240-42ea-9e59-10c7afc5a25b")
+    (property "Reference" "G1"
+      (at 30 83.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "GND"
+      (at 30 87.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (pin "1" (uuid "b455286a-8164-44b3-929e-1ce9b9ba32db"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "G1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:C_Polarized_US")
+    (at 70 50 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "1c813365-7b4a-4edd-bd65-54b1522d8d30")
+    (property "Reference" "C1"
+      (at 70 53.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "220uF 400V"
+      (at 70 57.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Capacitor_THT:CP_Radial_D16.0mm_P7.50mm"
+      (at 70 50 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "12ebe0a9-6d94-42e4-b1f5-9d05bdeb932b"))
+    (pin "2" (uuid "aa832bad-46a4-4f04-a508-93fc1e5bce2c"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "C1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:C_Polarized_US")
+    (at 70 80 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "f9c4e548-9b71-4057-b1af-b6fcbbf03352")
+    (property "Reference" "C2"
+      (at 70 83.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "220uF 400V"
+      (at 70 87.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Capacitor_THT:CP_Radial_D16.0mm_P7.50mm"
+      (at 70 80 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "58efca98-dc38-44d7-a25d-d966020f3fdc"))
+    (pin "2" (uuid "a25dadbf-0981-4f66-bf55-346369752613"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "C2")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:Fuse")
+    (at 0 50 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "21a7b01e-2144-4c95-aec9-912c3222c01f")
+    (property "Reference" "F1"
+      (at 0 53.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "15A fast"
+      (at 0 57.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Fuse:Fuseholder_Cylinder-5x20mm_Schurter_0031_8201"
+      (at 0 50 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "3dfe9458-b1b1-4c86-8db8-1fe2c4d6b0cd"))
+    (pin "2" (uuid "49b44567-d1b2-4555-bcb2-a6dfd4e18aaa"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "F1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:SW")
+    (at 130 35 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "79fa91e8-f2b6-465f-88b1-9c74bcfa8321")
+    (property "Reference" "S1"
+      (at 130 38.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SW_IGBT"
+      (at 130 42.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Spice_Primitive" "SW_IGBT"
+      (at 130 35 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Spice_Model" "SW_IGBT"
+      (at 130 35 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Spice_Model" "SW_IGBT SW(Vt=0.5 Vh=0.05 Ron=1m Roff=1Meg)"
+      (at 130 35 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "c0fe22a0-f9ab-4cfb-85ac-d67908675778"))
+    (pin "2" (uuid "81f7973b-f9d0-43d3-89ec-84ad139ba4a5"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "S1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 130 65 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "9a2825e8-26ce-4706-8741-13467cb42dcc")
+    (property "Reference" "D1"
+      (at 130 68.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "D_FW"
+      (at 130 72.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Spice_Primitive" "D_FW"
+      (at 130 65 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Spice_Model" "D_FW"
+      (at 130 65 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Spice_Model" "D_FW D(Vfwd=0.1 Ron=1m)"
+      (at 130 65 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "5cbd3e43-fcff-4e60-81eb-1992b3efc29e"))
+    (pin "2" (uuid "31bb18da-5107-49b9-8d9b-1be04168082f"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "D1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:SW")
+    (at 130 95 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "798f7055-e807-4d33-a081-f32fb787898e")
+    (property "Reference" "S2"
+      (at 130 98.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SW_IGBT"
+      (at 130 102.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Spice_Primitive" "SW_IGBT"
+      (at 130 95 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Spice_Model" "SW_IGBT"
+      (at 130 95 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "beaace07-a48a-40b5-94eb-3d7475756f77"))
+    (pin "2" (uuid "75a0b7fd-74f0-4bc6-8d5c-3dd7ffbe0058"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "S2")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 130 125 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "cf329f8a-c90f-4403-a714-aa5632aafed9")
+    (property "Reference" "D2"
+      (at 130 128.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "D_FW"
+      (at 130 132.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Spice_Primitive" "D_FW"
+      (at 130 125 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Spice_Model" "D_FW"
+      (at 130 125 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "abdb77ab-fbd6-45e4-8cb2-07c7dd862cfa"))
+    (pin "2" (uuid "7391ded9-7174-4c72-b25e-d77609af81d4"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "D2")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:SW")
+    (at 210 35 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "8fac6045-c2b9-4ef9-9688-5fd11fcbb5a8")
+    (property "Reference" "S3"
+      (at 210 38.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SW_IGBT"
+      (at 210 42.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Spice_Primitive" "SW_IGBT"
+      (at 210 35 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Spice_Model" "SW_IGBT"
+      (at 210 35 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "71e3cfa0-4919-4413-97db-03ca22235ec5"))
+    (pin "2" (uuid "1b3f96b2-e30d-4710-8fbf-07f9da86c8af"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "S3")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 210 65 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "0480779b-3d5b-405a-ba8e-855f8e6b3f23")
+    (property "Reference" "D3"
+      (at 210 68.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "D_FW"
+      (at 210 72.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Spice_Primitive" "D_FW"
+      (at 210 65 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Spice_Model" "D_FW"
+      (at 210 65 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "21fe9b85-d7fe-431b-8d5e-0bdbf5f57c5c"))
+    (pin "2" (uuid "8d86d3d0-00b9-4c0b-be86-953837c5619d"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "D3")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:SW")
+    (at 210 95 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "9bc0fa8b-980c-48d0-8647-9f1d14394de8")
+    (property "Reference" "S4"
+      (at 210 98.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "SW_IGBT"
+      (at 210 102.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Spice_Primitive" "SW_IGBT"
+      (at 210 95 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Spice_Model" "SW_IGBT"
+      (at 210 95 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "8e916115-4872-43ef-a3d0-c31f104da0a1"))
+    (pin "2" (uuid "9e40f0d0-40c5-4bea-970f-a8cf01e22f3c"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "S4")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:D")
+    (at 210 125 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "4530f4a9-0572-4ef8-830c-fc5218f1fa8e")
+    (property "Reference" "D4"
+      (at 210 128.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "D_FW"
+      (at 210 132.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Spice_Primitive" "D_FW"
+      (at 210 125 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (property "Spice_Model" "D_FW"
+      (at 210 125 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "485083d5-ae03-4812-bbfa-c4a5db60aaa8"))
+    (pin "2" (uuid "90d884b5-d1ed-4c98-8132-acf0dac0b1d4"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "D4")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Connector_Generic:Conn_01x02")
+    (at 280 70 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "50ece8d2-15a9-426c-9708-5048e45fdc09")
+    (property "Reference" "J_GATE"
+      (at 280 73.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "GATE_IN"
+      (at 280 77.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Connector_Generic:Conn_01x02"
+      (at 280 70 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "5ee00907-c9a1-4997-ac9b-421c9b885e17"))
+    (pin "2" (uuid "f68f660d-071a-47ad-bcf3-ab252d50a28e"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "J_GATE")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:L")
+    (at 290 45 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "17f763cb-6943-41ac-b3d2-a1bff64cd7e5")
+    (property "Reference" "L1"
+      (at 290 48.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "2mH"
+      (at 290 52.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Inductor_THT:L_Axial_L20.0mm_D8.0mm_P25.40mm_Horizontal"
+      (at 290 45 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "db5ed60b-a32b-46aa-bffb-13a72242594d"))
+    (pin "2" (uuid "e567dfe8-47c3-4862-9ccd-a1d4f4c8e0bf"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "L1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:C")
+    (at 290 95 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "c6722942-2111-49b6-8d4a-6255eff850a8")
+    (property "Reference" "C3"
+      (at 290 98.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "12.665uF"
+      (at 290 102.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm"
+      (at 290 95 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "762a100b-8360-4916-a737-abd4af4f66f7"))
+    (pin "2" (uuid "035d146f-93f6-4f9c-9d22-5685000cc509"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "C3")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:R")
+    (at 370 45 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "1fa80c2a-55ec-4b9d-be43-4ea6e1803af2")
+    (property "Reference" "R_LOAD"
+      (at 370 48.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "26.45"
+      (at 370 52.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P5.08mm_Horizontal"
+      (at 370 45 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "c9cd0cc9-1190-401b-8e12-40ad8b31904f"))
+    (pin "2" (uuid "8f19bf43-0d38-40cc-9922-b85b8ae8c16e"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "R_LOAD")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:L")
+    (at 370 95 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "c1319cc6-b37a-466d-a448-17ca83134ba7")
+    (property "Reference" "L_LOAD"
+      (at 370 98.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "35mH"
+      (at 370 102.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "Inductor_THT:L_Axial_L20.0mm_D8.0mm_P25.40mm_Horizontal"
+      (at 370 95 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "2b5fe018-bf3d-4da8-b14c-113cdbf882e3"))
+    (pin "2" (uuid "21e0c603-2062-4672-98c8-8e7467d0fd71"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "L_LOAD")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Connector_Generic:Conn_01x02")
+    (at 450 70 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "79846ffe-a58b-4ae5-a610-56e946dfbcc3")
+    (property "Reference" "J_OUT"
+      (at 450 73.5 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "AC_OUT"
+      (at 450 77.0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"
+      (at 450 70 0)
+      (effects (font (size 1.27 1.27)) (hide yes))
+    )
+    (pin "1" (uuid "d5c1a938-b47f-44be-bd5b-e16afa7d7ace"))
+    (pin "2" (uuid "07629210-8749-492b-ae7f-098f405a84ec"))
+    (instances
+      (project "inverter"
+        (path "/"
+          (reference "J_OUT")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (text ".param Vdc=400 f1=50 fs=10k ma=0.81317 td=2u tau={td/0.693147}"
+    (at 50 130 0)
+    (effects (font (size 1.27 1.27)))
+  )
+  (text ".param UNI=1 FILT=1 LOAD_B=0"
+    (at 50 145 0)
+    (effects (font (size 1.27 1.27)))
+  )
+  (text ".tran 0.5u 0.30 0.20 0.5u"
+    (at 50 160 0)
+    (effects (font (size 1.27 1.27)))
+  )
+  (text ".model SW_IGBT SW(Vt=0.5 Vh=0.05 Ron=1m Roff=1Meg)"
+    (at 50 175 0)
+    (effects (font (size 1.27 1.27)))
+  )
+  (text ".model D_FW D(Vfwd=0.1 Ron=1m)"
+    (at 50 190 0)
+    (effects (font (size 1.27 1.27)))
+  )
+  (text "* 2kW PV Inverter - Unipolar/Bipolar SPWM, 2us dead time"
+    (at 300 130 0)
+    (effects (font (size 1.27 1.27)))
+  )
+  (text "* KiCad: Inspect -> Simulator -> Open/Run Netlist"
+    (at 300 145 0)
+    (effects (font (size 1.27 1.27)))
+  )
+  (text "* .cir netlist: pv_inverter.cir"
+    (at 300 160 0)
+    (effects (font (size 1.27 1.27)))
+  )
+  (wire
+    (pts
+      (xy 10 50) (xy 30 50)
+    )
+  )
+  (wire
+    (pts
+      (xy 30 50) (xy 70 50)
+    )
+  )
+  (wire
+    (pts
+      (xy 30 80) (xy 70 80)
+    )
+  )
+  (wire
+    (pts
+      (xy 70 50) (xy 70 80)
+    )
+  )
+  (wire
+    (pts
+      (xy 70 50) (xy 130 35)
+    )
+  )
+  (wire
+    (pts
+      (xy 70 50) (xy 210 35)
+    )
+  )
+  (wire
+    (pts
+      (xy 70 80) (xy 130 95)
+    )
+  )
+  (wire
+    (pts
+      (xy 70 80) (xy 210 95)
+    )
+  )
+  (wire
+    (pts
+      (xy 130 65) (xy 130 45)
+    )
+  )
+  (wire
+    (pts
+      (xy 130 85) (xy 130 105)
+    )
+  )
+  (wire
+    (pts
+      (xy 210 65) (xy 210 45)
+    )
+  )
+  (wire
+    (pts
+      (xy 210 85) (xy 210 105)
+    )
+  )
+  (wire
+    (pts
+      (xy 130 55) (xy 290 45)
+    )
+  )
+  (wire
+    (pts
+      (xy 210 55) (xy 290 95)
+    )
+  )
+  (wire
+    (pts
+      (xy 290 55) (xy 370 45)
+    )
+  )
+  (wire
+    (pts
+      (xy 290 85) (xy 370 95)
+    )
+  )
+  (wire
+    (pts
+      (xy 370 55) (xy 370 85)
+    )
+  )
+  (wire
+    (pts
+      (xy 370 85) (xy 450 70)
+    )
+  )
+  (label "G1"
+    (at 160 35 0)
+    (effects (font (size 1.27 1.27)))
+  )
+  (label "G2"
+    (at 160 95 0)
+    (effects (font (size 1.27 1.27)))
+  )
+  (label "G3"
+    (at 240 35 0)
+    (effects (font (size 1.27 1.27)))
+  )
+  (label "G4"
+    (at 240 95 0)
+    (effects (font (size 1.27 1.27)))
+  )
+  (sheet_instances
+    (path "/"
+      (page "1")
+    )
+  )
+  (embedded_fonts no)
+)

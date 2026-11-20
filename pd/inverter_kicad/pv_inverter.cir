@@ -1,0 +1,114 @@
+* MTE 3201: 2 kW Single-Phase PV Full-Bridge Inverter (KiCad / ngspice / LTspice)
+* Parameters: Vdc=400V, f1=50Hz, fs=10kHz, td=2us, Lf=2mH, Cf=12.665uF
+*
+* Usage in KiCad:  Inspect -> Simulator -> Open/Run Netlist -> pv_inverter.cir
+* Usage standalone: ngspice pv_inverter.cir
+*
+* Sweep control (edit .param values then re-run):
+*   UNI   = 1  -> Unipolar SPWM   | 0 -> Bipolar SPWM
+*   FILT  = 1  -> LC Filter ON    | 0 -> Unfiltered
+*   LOAD_B= 0  -> Load A (26.45 Ohm resistive) | 1 -> Load B (20 Ohm + 35 mH)
+*   Vdc   = 400 | 320 V (low DC-link check)
+
+.param Vdc   = 400
+.param f1    = 50
+.param fs    = 10k
+.param ma    = 0.81317
+.param td    = 2u
+.param tau   = {td / 0.693147}
+
+* Mode Selectors
+.param UNI    = 1
+.param FILT   = 1
+.param LOAD_B = 0
+
+* ---------------------------------------------------------------------------
+* 1. DC LINK
+* ---------------------------------------------------------------------------
+Vdc_src dc_pos 0 {Vdc}
+
+* ---------------------------------------------------------------------------
+* 2. REFERENCE & 10 kHz TRIANGULAR CARRIER
+*    Symmetric triangle between -1 V and +1 V, Period = 100 us
+* ---------------------------------------------------------------------------
+VrefA refA 0 SINE(0 {ma} {f1} 0 0 0)
+VrefB refB 0 SINE(0 {ma} {f1} 0 0 180)
+Vtri   tri  0 PULSE(-1 1 0 49.999u 49.999u 2n 100u)
+
+* ---------------------------------------------------------------------------
+* 3. RAW SPWM COMPARATORS (1 V = ON, 0 V = OFF)
+* ---------------------------------------------------------------------------
+B_g1_raw g1_raw 0 V = V(refA) > V(tri) ? 1 : 0
+B_g2_raw g2_raw 0 V = 1 - V(g1_raw)
+B_g3_raw g3_raw 0 V = {UNI} > 0.5 ? (V(refB) > V(tri) ? 1 : 0) : V(g2_raw)
+B_g4_raw g4_raw 0 V = 1 - V(g3_raw)
+
+* ---------------------------------------------------------------------------
+* 4. 2 us DEAD-TIME TURN-ON DELAY NETWORKS
+*    Asymmetric RC: rising edge delayed by td, falling edge instant.
+*    tau = td / ln(2) = 2.885 us so the RC crosses 0.5 V at exactly td.
+* ---------------------------------------------------------------------------
+Rdt1 g1_raw g1_rc 1k
+Cdt1 g1_rc  0     {tau/1k}
+B_g1 g1     0     V = min(V(g1_raw), V(g1_rc)) > 0.5 ? 1 : 0
+
+Rdt2 g2_raw g2_rc 1k
+Cdt2 g2_rc  0     {tau/1k}
+B_g2 g2     0     V = min(V(g2_raw), V(g2_rc)) > 0.5 ? 1 : 0
+
+Rdt3 g3_raw g3_rc 1k
+Cdt3 g3_rc  0     {tau/1k}
+B_g3 g3     0     V = min(V(g3_raw), V(g3_rc)) > 0.5 ? 1 : 0
+
+Rdt4 g4_raw g4_rc 1k
+Cdt4 g4_rc  0     {tau/1k}
+B_g4 g4     0     V = min(V(g4_raw), V(g4_rc)) > 0.5 ? 1 : 0
+
+* ---------------------------------------------------------------------------
+* 5. FULL-BRIDGE VSI (4 Switches + Anti-Parallel Diodes)
+*    SW_IGBT: ideal switch with Ron=1mOhm, Roff=1MOhm
+*    D_FW:    fast freewheeling diode, Vfwd=0.1V
+* ---------------------------------------------------------------------------
+* Leg A: S1 (upper, dc_pos -> invA), S2 (lower, invA -> 0)
+S1 dc_pos invA g1 0 SW_IGBT
+D1 invA dc_pos D_FW
+S2 invA 0      g2 0 SW_IGBT
+D2 0    invA   D_FW
+
+* Leg B: S3 (upper, dc_pos -> invB), S4 (lower, invB -> 0)
+S3 dc_pos invB g3 0 SW_IGBT
+D3 invB dc_pos D_FW
+S4 invB 0      g4 0 SW_IGBT
+D4 0    invB   D_FW
+
+.model SW_IGBT SW(Vt=0.5 Vh=0.05 Ron=1m Roff=1Meg)
+.model D_FW D(Vfwd=0.1 Ron=1m)
+
+* ---------------------------------------------------------------------------
+* 6. OPTIONAL LC OUTPUT FILTER (L=2mH, C=12.665uF, fc=1kHz)
+*    When FILT=0, L=1nH and C=1fF (effectively bypassed)
+* ---------------------------------------------------------------------------
+L_filt invA outA {FILT > 0.5 ? 2m : 1n}
+C_filt outA invB {FILT > 0.5 ? 12.665u : 1f}
+
+* ---------------------------------------------------------------------------
+* 7. LOAD SELECTION
+*    LOAD_B=0: R_A = 26.45 Ohm (purely resistive)
+*    LOAD_B=1: R_B = 20 Ohm + L_B = 35 mH (R-L load)
+* ---------------------------------------------------------------------------
+R_load outA load_mid {LOAD_B > 0.5 ? 20 : 26.45}
+L_load load_mid invB {LOAD_B > 0.5 ? 35m : 1n}
+
+* ---------------------------------------------------------------------------
+* 8. TRANSIENT SIMULATION SETTINGS
+*    Duration = 0.30 s, Max step = 0.5 us, Start output at 0.20 s
+*    (Final 5 cycles = steady-state window for FFT/THD)
+* ---------------------------------------------------------------------------
+.tran 0.5u 0.30 0.20 0.5u
+
+* ---------------------------------------------------------------------------
+* 9. OUTPUT VARIABLES FOR PROBE / PLOT
+* ---------------------------------------------------------------------------
+.print tran v(invA) v(invB) v(outA) v(outA,invB) i(R_load) i(L_filt)
+.print tran v(g1) v(g2) v(g3) v(g4)
+.end
